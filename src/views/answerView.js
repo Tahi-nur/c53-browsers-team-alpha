@@ -3,9 +3,9 @@
  * @returns {Element}
  */
 export const createAnswerElement = (key, answerText) => {
-  const element = document.createElement('li');
-  element.innerHTML = String.raw`
-    ${key}: ${answerText};
-  `;
+  const element = document.createElement('button');
+  element.classList.add='answer-button';
+  element.id=`${key}`
+  element.innerHTML =`${answerText}`;
   return element;
 };
