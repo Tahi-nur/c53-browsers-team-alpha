@@ -20,16 +20,16 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
-
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
-  };
-  
-   const answerButtons=answersListElement.querySelectorAll('button');
-   answerButtons.forEach(answer=>answer.addEventListener('click',handelAnswer));
+  }
 
- 
+  const answerButtons = answersListElement.querySelectorAll('button');
+  answerButtons.forEach((answer) =>
+    answer.addEventListener('click', handelAnswer)
+  );
+
   document
     .getElementById(SKIP_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
@@ -39,13 +39,11 @@ export const initQuestionPage = () => {
     .addEventListener('click', nextQuestion);
 };
 
-
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
 };
-const handelAnswer=(e)=>{
-  // call checkAnswer function 
-
-}
+const handelAnswer = (e) => {
+  // call checkAnswer function
+};
