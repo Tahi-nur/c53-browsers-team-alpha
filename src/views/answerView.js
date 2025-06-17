@@ -12,11 +12,12 @@ export const createAnswerElement = (key, answerText) => {
   element.classList.add('answer-item');
 
   element.addEventListener('click', () => {
-    const correctKey = quizData.questions[quizData.currentQuestionIndex].correctAnswer;
+    const correctKey =
+      quizData.questions[quizData.currentQuestionIndex].correctAnswer;
 
     // Prevent multiple clicks
     const allAnswers = document.querySelectorAll('.answer-item');
-    if ([...allAnswers].some(el => el.classList.contains('disabled'))) return;
+    if ([...allAnswers].some((el) => el.classList.contains('disabled'))) return;
 
     allAnswers.forEach((el) => {
       el.classList.add('disabled');
