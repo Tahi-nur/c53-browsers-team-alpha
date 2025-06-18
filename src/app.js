@@ -5,4 +5,4 @@ const loadApp = () => {
     initWelcomePage();
 };
 
-window.addEventListener('load', loadApp, { once: true }); // Ensure the app loads only once when the window is fully loaded
+window.addEventListener('load', loadApp, { once: true }); // Initialize app on load only once
