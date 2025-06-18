@@ -2,6 +2,7 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  SKIP_QUESTION_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
@@ -24,6 +25,15 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
+  const answerButtons = answersListElement.querySelectorAll('button');
+  answerButtons.forEach((answer) =>
+    answer.addEventListener('click', handelAnswer)
+  );
+
+  document
+    .getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', nextQuestion);
+
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
@@ -33,4 +43,7 @@ const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
+};
+const handelAnswer = (e) => {
+  // call checkAnswer function
 };
