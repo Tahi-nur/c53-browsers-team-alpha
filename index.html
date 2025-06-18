@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf8" />
-    <title>your project name</title>
+    <meta charset="utf-8" />
 
     <link href="./public/style.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <!-- Put your HTML here -->
-    <div id="user-interface" class="centered"></div>
+  <body class="app">
+    <!-- Theme toggle button -->
+     <button id="theme-toggle" class="theme-toggle">🌓</button>
 
-    <!-- your data -->
+    <!-- Main UI -->
+    <div id="user-interface" class="centered">
+      <div id="root"></div>
+    </div>
+
+    <!-- Background music for quiz -->
+    <audio
+      id="quizAudio"
+      src="./public/assets/intro-music.mp3"
+      preload="auto"
+      loop
+    ></audio>
     <script type="module" src="src/app.js"></script>
   </body>
 </html>

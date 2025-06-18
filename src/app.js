@@ -1,4 +1,4 @@
-    import { quizData ,quizState} from './data.js';
+import { quizData ,quizState} from './data.js';
 import { initWelcomePage } from './pages/welcomePage.js';
 import { loadQuizState } from './pages/loadState.js';
 import { initQuestionPage } from './pages/questionPage.js';
@@ -12,9 +12,9 @@ const loadApp = () => {
   quizState.answers=savedState.answers;
   quizState.score=savedState.score;
   quizData.currentQuestionIndex = quizState.currentQuestionIndex;
-  clearQuizState();
+  //clearQuizState();
   
-console.log(quizState);
+
  
 
    const alreadyStarted = Object.keys(quizState.answers).length > 0;
@@ -27,85 +27,40 @@ console.log(quizState);
 
     }
  
-    // Skip welcome page and go directly to question page
+   
     initQuestionPage(); 
-    // <-- You need to import this!
+    
     
   } else {
     initWelcomePage();
   }
+    const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+    });
+  }
 };
 
-window.addEventListener('load', loadApp);
+window.addEventListener('load', loadApp, { once: true }); 
 
 
-/*  const savedState = loadQuizState() || {};
 
-  // Fallback to 0 if undefined
-  quizData.currentQuestionIndex = savedState.currentQuestionIndex || 0;
-  quizState.currentQuestionIndex = savedState.currentQuestionIndex || 0;
-  quizState.answers = savedState.answers || {};
-  quizState.score = savedState.score || 0;
-  const alreadyStarted = Object.keys(quizState.answers).length > 0;
-    if (alreadyStarted) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
-    // Skip welcome page and go directly to question page
-    initQuestionPage(); 
-    // <-- You need to import this!
-    
-  } else {
-    initWelcomePage();*/
-
-/* import { quizData ,quizState} from './data.js';
-import { initWelcomePage } from './pages/welcomePage.js';
-import { loadQuizState } from './pages/loadState.js';
-
-const loadApp = () => {
-  const savedState = loadQuizState();
-
-  quizData.currentQuestionIndex = 0;
-
-  initWelcomePage();
-};
-
-window.addEventListener('load', loadApp);*/
-
-
-
-
-
-
-
-/*  const savedState = loadQuizState();
-    quizData.currentQuestionIndex = savedState.currentQuestionIndex;
-  quizState.currentQuestionIndex = savedState.currentQuestionIndex;
-  quizState.answers = savedState.answers || {};
-  quizState.score = savedState.score || 0;
-  const alreadyStarted = Object.keys(quizState.answers).length > 0;
-
-  if (alreadyStarted) {
- 
-    // Skip welcome page and go directly to question page
-    initQuestionPage(); 
-    // <-- You need to import this!
-    
-  } else {
-    initWelcomePage();
-  }*/
-
-    /*    import { quizData ,quizState} from './data.js';
-import { initWelcomePage } from './pages/welcomePage.js';
-import { loadQuizState } from './pages/loadState.js';
-
-const loadApp = () => {
-  const savedState = loadQuizState();
-
-  quizData.currentQuestionIndex = 0;
-
-  initWelcomePage();
-};
-
-window.addEventListener('load', loadApp);*/
 
 
 
