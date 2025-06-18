@@ -16,7 +16,6 @@ import { resetInMemoryState } from './resetMemory.js';
 
 //let hasAnswered=false;
 export const initQuestionPage = () => {
- 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
@@ -33,55 +32,52 @@ export const initQuestionPage = () => {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
   }
-  const skipQuestionButton=document.getElementById(SKIP_QUESTION_BUTTON_ID);
-  const nextQuestionButton= document.getElementById(NEXT_QUESTION_BUTTON_ID);
-        quizData.hasAnswered?nextQuestionButton.disabled=false:nextQuestionButton.disabled=true;
+  const skipQuestionButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  quizData.hasAnswered
+    ? (nextQuestionButton.disabled = false)
+    : (nextQuestionButton.disabled = true);
 
   const answerButtons = answersListElement.querySelectorAll('button');
   answerButtons.forEach((answer) =>
-    answer.addEventListener('click', (e)=>{
-      if(quizData.hasAnswered) return;
-      quizData.hasAnswered=true;
-      nextQuestionButton.disabled=false;
+    answer.addEventListener('click', (e) => {
+      if (quizData.hasAnswered) return;
+      quizData.hasAnswered = true;
+      nextQuestionButton.disabled = false;
       handelAnswer(e);
-
     })
   );
-    skipQuestionButton.addEventListener('click',(e)=>{
-      if(quizData.hasAnswered) return;
-      quizData.hasAnswered= true;
-      skipQuestionButton.disabled=true;
-      nextQuestionButton.disabled=false;
-      checkAnswers(e,true);
-    });
+  skipQuestionButton.addEventListener('click', (e) => {
+    if (quizData.hasAnswered) return;
+    quizData.hasAnswered = true;
+    skipQuestionButton.disabled = true;
+    nextQuestionButton.disabled = false;
+    checkAnswers(e, true);
+  });
 
- 
-    nextQuestionButton.addEventListener('click',(e)=>{
-      if(quizData.hasAnswered){
-        nextQuestion();
-        quizData.hasAnswered=false;
-        
-      }
-    });
+  nextQuestionButton.addEventListener('click', (e) => {
+    if (quizData.hasAnswered) {
+      nextQuestion();
+      quizData.hasAnswered = false;
+    }
+  });
 };
 
 const nextQuestion = () => {
-//if(quizData.currentQuestionIndex>quizData.questions.length-1) return;
- 
+  //if(quizData.currentQuestionIndex>quizData.questions.length-1) return;
+
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-   if (quizData.currentQuestionIndex >= quizData.questions.length) {
-    clearQuizState(); 
+  if (quizData.currentQuestionIndex >= quizData.questions.length) {
+    clearQuizState();
     resetInMemoryState();
     initWelcomePage();
     return;
   }
-  quizState.currentQuestionIndex=quizData.currentQuestionIndex;
+  quizState.currentQuestionIndex = quizData.currentQuestionIndex;
   saveQuizState(quizState);
   console.log(quizState);
   initQuestionPage();
 };
 const handelAnswer = (e) => {
   checkAnswers(e);
-
-
 };

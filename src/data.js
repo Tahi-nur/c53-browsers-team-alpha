@@ -11,8 +11,8 @@
 
 export const quizData = {
   currentQuestionIndex: 0,
-  score:0,
-  hasAnswered:false,
+  score: 0,
+  hasAnswered: false,
   // the questions in the quiz
   questions: [
     {
@@ -64,5 +64,3 @@ export const quizState = {
   score: 0,
   answers: {},
 };
-
-

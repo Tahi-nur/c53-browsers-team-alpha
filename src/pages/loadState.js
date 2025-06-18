@@ -1,6 +1,6 @@
-export const loadQuizState=() =>{
+export const loadQuizState = () => {
   const saved = localStorage.getItem('quizState');
-  
+
   if (saved) {
     return JSON.parse(saved);
   } else {
@@ -11,7 +11,6 @@ export const loadQuizState=() =>{
     };
   }
 };
-export const  clearQuizState=()=> {
+export const clearQuizState = () => {
   localStorage.removeItem('quizState');
 };
-
