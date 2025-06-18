@@ -12,6 +12,7 @@ import { saveQuizState } from './savestate.js';
 import { checkAnswers } from './checkAnswer.js';
 import { clearQuizState } from './loadState.js';
 import { initWelcomePage } from './welcomePage.js';
+import { resetInMemoryState } from './resetMemory.js';
 
 //let hasAnswered=false;
 export const initQuestionPage = () => {
@@ -70,9 +71,7 @@ const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
    if (quizData.currentQuestionIndex >= quizData.questions.length) {
     clearQuizState(); 
-    quizData.currentQuestionIndex = 0; 
-    quizState.currentQuestionIndex=0;
-    
+    resetInMemoryState();
     initWelcomePage();
     return;
   }
