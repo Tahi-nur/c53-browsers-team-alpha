@@ -9,7 +9,7 @@ export const initWelcomePage = () => {
   // 👇 Pass a callback to handle the username
   const welcomeElement = createWelcomeElement((userName) => {
     // Store the username (could be in localStorage, or global variable if needed)
-    console.log("Username received:", userName);
+    console.log('Username received:', userName);
 
     // Then move to the quiz page
     initQuestionPage(userName);
