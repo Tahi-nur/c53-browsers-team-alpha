@@ -53,7 +53,6 @@ const handleAnswer = (e) => {
     }
   });
 
-  // Show the "Next" button after answering
   const nextButton = document.getElementById(NEXT_BUTTON_ID);
   if (nextButton) {
     nextButton.classList.remove('hidden');
