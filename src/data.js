@@ -11,6 +11,8 @@
 
 export const quizData = {
   currentQuestionIndex: 0,
+  score: 0,
+  hasAnswered: false,
   // the questions in the quiz
   questions: [
     {
@@ -50,11 +52,15 @@ export const quizData = {
         },
         {
           text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
+          href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
         },
       ],
     },
     // Add more questions here
   ],
+};
+export const quizState = {
+  currentQuestionIndex: 0,
+  score: 0,
+  answers: {},
 };
