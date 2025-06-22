@@ -34,3 +34,29 @@ const nextQuestion = () => {
 
   initQuestionPage();
 };
+const handleAnswer = (e) => {
+  const clickedButton = e.target;
+  const selectedKey = clickedButton.textContent[0]; // assumes "A: Answer text"
+  const correctKey = quizData.questions[quizData.currentQuestionIndex].correctAnswer;
+
+  const answerButtons = document.querySelectorAll(`#${ANSWERS_LIST_ID} button`);
+
+  answerButtons.forEach((btn) => {
+    btn.disabled = true;
+    btn.classList.add('disabled');
+
+    const btnKey = btn.textContent[0];
+    if (btnKey === correctKey) {
+      btn.classList.add('correct');
+    } else if (btn === clickedButton && btnKey !== correctKey) {
+      btn.classList.add('incorrect');
+    }
+  });
+
+  // Show the "Next" button after answering
+  const nextButton = document.getElementById(NEXT_BUTTON_ID);
+  if (nextButton) {
+    nextButton.classList.remove('hidden');
+    nextButton.disabled = false;
+  }
+};
