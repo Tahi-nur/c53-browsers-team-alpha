@@ -78,6 +78,3 @@ const nextQuestion = () => {
   console.log(quizState);
   initQuestionPage();
 };
-const handelAnswer = (e) => {
-  checkAnswers(e);
-};

@@ -1,11 +1,11 @@
+import { quizData } from '../data.js';
+
 /**
  * Create an Answer element
- * @returns {Element}
+ * @param {string} key - the answer key (e.g., "A", "B")
+ * @param {string} answerText - the text for the answer
+ * @returns {HTMLElement}
  */
 export const createAnswerElement = (key, answerText) => {
-  const element = document.createElement('button');
-  element.classList.add('answer-button');
-  element.id = `${key}`;
-  element.innerHTML = `${answerText}`;
   return element;
 };
